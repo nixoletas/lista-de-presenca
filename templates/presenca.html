@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>presentes</title>
+<link rel="stylesheet" href="../static/style.css" />
+<link rel="icon" href="../static/9bcom.ico" type="image/x-icon">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap">
+</head>
+<body>
+    {% include 'header.html' %}
+    
+    
+    <div class="box">
+    <h2 class="titulo">Convidados presentes no evento</h2>
+    <table id="customers">
+      <h3>Autoridades</h3>
+      <tr>
+        <th hidden>ID</th>
+        <th>Ord</th>
+        <th>Convidado</th>
+      </tr>
+      {% for convidado in convidados %}
+      {% if convidado["confirmado"] and convidado["tipo"] == 'OFICIAIS GENERAIS' %}
+      <tr onclick="desconfirmar()">
+        <td hidden>{{ convidado["id"] }}</td>
+        <td onclick="desconfirmar()">{{ loop.index }}</td>
+        <td onclick="desconfirmar()">{{ convidado["nome"] }}</td>
+      </tr>
+      {% endif %}
+      {% endfor %}
+    </table>
+
+    <table id="customers">
+      <h3>Comandantes de OM</h3>
+      <tr>
+        <th hidden>ID</th>
+        <th>Ord</th>
+        <th>Convidado</th>
+      </tr>
+      {% for convidado in convidados %}
+      {% if convidado["confirmado"] and convidado["tipo"] == 'COMANDANTES DE OM' %}
+      <tr onclick="desconfirmar()">
+        <td hidden>{{ convidado["id"] }}</td>
+        <td onclick="desconfirmar()">{{ loop.index }}</td>
+        <td onclick="desconfirmar()">{{ convidado["nome"] }}</td>
+      </tr>
+      {% endif %}
+      {% endfor %}
+    </table>
+    
+    <table id="customers">
+      <h3>Convidados Militares</h3>
+      <tr>
+        <th hidden>ID</th>
+        <th>Ord</th>
+        <th>Convidado</th>
+      </tr>
+      {% for convidado in convidados %}
+      {% if convidado["confirmado"] and convidado["tipo"] == 'CONVIDADOS MILITARES' %}
+      <tr onclick="desconfirmar()">
+        <td hidden>{{ convidado["id"] }}</td>
+        <td onclick="desconfirmar()">{{ loop.index }}</td>
+        <td onclick="desconfirmar()">{{ convidado["nome"] }}</td>
+      </tr>
+      {% endif %}
+      {% endfor %}
+    </table>
+
+    <table id="customers">
+      <h3>Público Civil</h3>
+      <tr>
+        <th hidden>ID</th>
+        <th>Ord</th>
+        <th>Convidado</th>
+      </tr>
+      {% for convidado in convidados %}
+      {% if convidado["confirmado"] and convidado["tipo"] == 'CIVIL' %}
+      <tr onclick="desconfirmar()">
+        <td hidden>{{ convidado["id"] }}</td>
+        <td onclick="desconfirmar()">{{ loop.index }}</td>
+        <td onclick="desconfirmar()">{{ convidado["nome"] }}</td>
+      </tr>
+      {% endif %}
+      {% endfor %}
+    </table>
+
+    <table id="customers">
+      <h3>Outros</h3>
+      <tr>
+        <th hidden>ID</th>
+        <th>Ord</th>
+        <th>Convidado</th>
+      </tr>
+      {% for convidado in convidados %}
+      {% if convidado["confirmado"] and convidado["tipo"] == 'OUTROS' %}
+      <tr onclick="desconfirmar()">
+        <td hidden>{{ convidado["id"] }}</td>
+        <td onclick="desconfirmar()">{{ loop.index }}</td>
+        <td onclick="desconfirmar()">{{ convidado["nome"] }}</td>
+      </tr>
+      {% endif %}
+      {% endfor %}
+    </table>
+  </div>
+  <button class="invisible" onclick="limpar()">Limpar Lista</button>
+    <script>
+      setTimeout(function(){
+        location.reload();
+      }, 15000);
+
+      function desconfirmar() {
+        var tables = document.querySelectorAll("table#customers");
+        tables.forEach(table => {
+          for (var i = 1; i < table.rows.length; i++) {
+            table.rows[i].onclick = function () {
+              if (confirm("Deseja desconfirmar a presença deste convidado?")) {
+                var id = this.cells[0].innerHTML;
+                window.location = "/presenca/desconfirmar/" + id;
+              }
+            };
+          }
+        });
+      }
+
+      function limpar() {
+        if (confirm("Deseja limpar a lista de presença?")) {
+          window.location = "/presenca/limpar";
+        }
+      }
+        
+      </script>
+      <style>
+        td {
+          cursor: pointer;
+        }
+
+        .invisible {
+          position: fixed;
+          bottom: 0;
+          right: 0;
+          width: 200px;
+          cursor: pointer;
+          color: white;
+          border: none;
+        }
+      </style>
+</body>
+</html>

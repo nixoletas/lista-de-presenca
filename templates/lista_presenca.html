@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>presença do {{ evento }} </title>
+</head>
+<body>
+    {% include 'header.html' %}
+    <div class="box">
+        <h2 class="titulo">marcar no evento {{ evento }}</h2>
+        <p>Relação geral</p>
+    <div class="box">
+        <div class="">
+        <button class="toggle-menu" onclick="location.href='detalhes/{{evento[0]}}/lista_presenca/oficiais_generais'">Oficiais Generais</a></button>
+        <button class="toggle-menu" onclick="location.href='detalhes/{{evento[0]}}/lista_presenca/comandantes_om'">Comandantes de OM</a></button>
+        <button class="toggle-menu" onclick="location.href='detalhes/{{evento[0]}}/lista_presenca/convidados_militares'">Convidados Militares</a></button>
+        <button class="toggle-menu" onclick="location.href='detalhes/{{evento[0]}}/lista_presenca/civil'">Civil</a></button>
+
+    </div>
+    <style>
+        body {
+            cursor: pointer;
+        }
+    </style>
+    
+</body>
+</html>

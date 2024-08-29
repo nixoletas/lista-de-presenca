@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Confirmação de Presença</title>
+        <link rel="icon" href="../static/9bcom.ico" type="image/x-icon">
+        <link rel="stylesheet" href="../static/style.css" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap">
+</head>
+<body>
+    {% include 'header.html' %}
+    <div class="content">
+    <a href="/" class="confirmar">Fazer novo lançamento</a>
+    <table id="customers">
+        <tr>
+            <th>ID</th>
+            <th>Convidado</th>
+        </tr>
+        {% for convidado in convidados %}
+            {% if convidado["confirmado"] %}
+                <tr onclick="desconfirmar()">
+                    <td onclick="desconfirmar()">{{ convidado["id"] }}</td>
+                    <td onclick="desconfirmar()">{{ convidado["nome"] }}</td>
+                </tr>
+            {% endif %}
+        {% endfor %}
+    </table>
+</div>
+<script>
+    function desconfirmar() {
+        var table = document.getElementById("customers");
+        for (var i = 1; i < table.rows.length; i++) {
+          table.rows[i].onclick = function () {
+            if (confirm("Deseja desconfirmar a presença deste convidado?")) {
+              var id = this.cells[0].innerHTML;
+              window.location = "/presenca/desconfirmar/" + id;
+            }
+          };
+        }
+      }
+</script>
+<style>
+    body {
+    cursor: pointer;
+    }
+</style>
+</body>
+</html>

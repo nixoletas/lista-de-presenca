@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Detalhes do Evento</title>
+</head>
+<body>
+    {% include 'header.html' %}
+    <button onclick="location.href='{{evento[0]}}/lista_presenca'">Lista de presença do evento</button>
+    <div class="box">
+        <h2 class="titulo">Detalhes do Evento</h2>
+        <p><span class="negrito">Evento: </span>{{ evento[1] }}</p>
+        <p><span class="negrito">Data: </span>{{ evento[2] }}</p>
+    </div>
+    <div class="box">
+        <h2 class="titulo">Convidados</h2>
+        <table id="customers">
+            <h3>Autoridades</h3>
+            <tr>
+                <th>Ord</th>
+                <th>Convidado</th>
+            </tr>
+            {% for convidado in convidados %}
+            {% if convidado["confirmado"] and convidado["tipo"] == 'OFICIAIS GENERAIS' %}
+            <tr>
+                <td>{{ loop.index }}</td>
+                <td>{{ convidado["nome"] }}</td>
+            </tr>
+            {% endif %}
+            {% endfor %}
+        </table>
+        <table id="customers">
+            <h3>Comandantes de OM</h3>
+            <tr>
+                <th>Ord</th>
+                <th>Convidado</th>
+            </tr>
+            {% for convidado in convidados %}
+            {% if convidado["confirmado"] and convidado["tipo"] == 'COMANDANTES DE OM' %}
+            <tr>
+                <td>{{ loop.index }}</td>
+                <td>{{ convidado["nome"] }}</td>
+            </tr>
+            {% endif %}
+            {% endfor %}
+        </table>
+        <table id="customers">
+            <h3>Convidados Militares</h3>
+            <tr>
+                <th>Ord</th>
+                <th>Convidado</th>
+            </tr>
+            {% for convidado in convidados %}
+            {% if convidado["confirmado"] and convidado["tipo"] == 'CONVIDADOS MILITARES' %}
+            <tr>
+                <td>{{ loop.index }}</td>
+                <td>{{ convidado["nome"] }}</td>
+            </tr>
+            {% endif %}
+            {% endfor %}
+        </table>
+        <table id="customers">
+            <h3>Público Civil</h3>
+            <tr>
+                <th>Ord</th>
+                <th>Convidado</th>
+            </tr>
+            {% for convidado in convidados %}
+            {% if convidado["confirmado"] and convidado["tipo"] == 'PÚBLICO CIVIL' %}
+            <tr>
+        
+                <td>{{ loop.index }}</td>
+                <td>{{ convidado["nome"] }}</td>
+            </tr>
+            {% endif %}
+            {% endfor %}
+        </table>
+    </div>
+    <style>
+        body {
+            cursor: pointer;
+        }
+
+        .negrito {
+            font-weight: bold;
+        }
+    </style>
+</body>
+</html>

@@ -1,0 +1,7 @@
+services:
+  server:
+    build:
+      context: .
+    container_name: presenca
+    ports:
+      - 8080:8080

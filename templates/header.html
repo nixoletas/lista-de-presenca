@@ -1,0 +1,12 @@
+<header class="header">
+    {% if request.path != '/presenca'%}
+    <a href="/presenca" class="logo">Dia das Comunicações</a>
+    <!--<a href="/eventos" class="menu">Eventos</a>
+    <a href="/evento_novo" class="menu">Novo Evento</a> -->
+    {% elif request.path == '/presenca' %}
+    <a href="/" class="logo">Dia das Comunicações</a>
+    {% endif %}
+    <link rel="stylesheet" href="../static/style.css" />
+    <link rel="icon" href="../static/9bcom.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap">
+</header>

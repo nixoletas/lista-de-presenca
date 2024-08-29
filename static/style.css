@@ -1,0 +1,356 @@
+body {
+  margin: 2px;
+  padding: 2px;
+  color: black;
+  background-color: white;
+}
+
+.content {
+        margin: 0 150px 0 150px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+       input[type=text] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  max-width: 95%;
+  align-self: center;
+}
+
+/* Estilos para o menu de seleção */
+.select-menu {
+  max-width: 300px; /* Define a largura máxima */
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc; /* Adiciona uma borda cinza */
+  border-radius: 4px; /* Adiciona bordas arredondadas */
+  background-color: #fff; /* Cor de fundo */
+  color: #333; /* Cor do texto */
+  appearance: none; /* Remove a aparência padrão do sistema operacional */
+}
+
+/* Estiliza a seta do menu de seleção */
+.select-menu:after {
+  content: '\25BC'; /* Unicode para a seta para baixo */
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  pointer-events: none; /* Evita que a seta seja clicável */
+}
+
+/* Estilo para quando o menu de seleção está focado */
+.select-menu:focus {
+  outline: none; /* Remove o contorno padrão do foco */
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Adiciona uma sombra sutil */
+}
+
+
+    .nome {
+        font-size: large;
+    }
+
+    .novo-lancamento {
+    font-size: x-large;
+    align-self: center;
+    cursor: pointer;
+    font-weight: 700; /* Green */
+    border: none;
+    padding: 16px;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 4px;
+    background-color: rgb(42, 42, 140);
+    color: rgb(255, 255, 255);
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    max-width: 400px;
+}
+
+       
+#customers {
+  border-collapse: collapse;
+  width: 95%;
+  max-width: 1200px;
+  
+  align-items: center;
+  align-self: center;
+}
+
+#customers td, #customers th {
+  text-align: center;
+  border: 1px solid #ddd;
+  padding: 8px;
+  font-size: 14px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: center;
+  background-color: #0446aa;
+  color: white;
+}
+
+    .confirmado {
+        color: white;
+    }
+
+    .content {
+        margin: 0 150px 0 150px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+      .novo-lancamento {
+    font-size: x-large;
+    align-self: center;
+    cursor: pointer;
+    font-weight: 700; /* Green */
+    border: none;
+    padding: 16px;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 4px;
+    background-color: rgb(42, 42, 140);
+    color: rgb(255, 255, 255);
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    max-width: 400px;
+}
+
+ /* Style the header with a grey background and some padding */
+ .header {
+  text-align: center;
+  overflow: hidden;
+  background-color: #120079;
+  padding: 20px 10px;
+}
+
+/* Style the header links */
+.header a {
+  float: center;
+  color: rgb(255, 255, 255);
+  text-align: center;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 18px;
+  line-height: 25px;
+  border-radius: 4px;
+}
+
+/* Style the logo link (notice that we set the same value of line-height and font-size to prevent the header to increase when the font gets bigger */
+.header a.logo {
+  text-align: center;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+/* Change the background color on mouse-over */
+.header a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Style the active/current link*/
+.header a.active {
+  background-color: dodgerblue;
+  color: white;
+}
+
+/* Add media queries for responsiveness - when the screen is 500px wide or less, stack the links on top of each other */
+@media screen and (max-width: 768px) {
+  .toggle-menu {
+    margin: 4px;
+  }
+
+  .content {
+      margin: 0;
+      padding: 10px;
+  }
+
+  td {
+    font-size: 16px;
+  }
+
+  #convidado-select {
+    max-width: 100%;
+    width: 100%;
+    font-size: 12px;
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  #convidado-select option {
+    width: 200px;
+    max-width: 100%;
+    font-size: 12px;
+    font-family: 'Montserrat', sans-serif;
+  }
+  
+  .nome {
+      font-size: medium;
+  }
+  
+  .novo-lancamento {
+      font-size: large;
+      padding: 10px;
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+  }
+
+  /* Estilos do cabeçalho */
+  .header {
+      padding: 10px;
+  }
+
+  .header a {
+      padding: 8px;
+      font-size: 16px;
+  }
+}
+
+.selecione {
+    color: white;
+}
+
+.box {
+    text-align: center;
+    max-width: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.box select {
+    margin: 0 auto;
+    align-self: center;
+    max-width: 100%;
+    width: 90%;
+    text-align: center;
+  color: black;
+  padding: 12px;
+  border: none;
+  font-size: 18px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+  -webkit-appearance: button;
+  appearance: button;
+  outline: none;
+}
+
+.box::before {
+    align-self: center;
+  text-align: center;
+  font-size: 12px;
+  line-height: 45px;
+  max-width: 100%;
+    width: 100%;
+  color: rgb(1, 15, 82);
+  background-color: rgba(1, 8, 65, 0.993);
+  pointer-events: none;
+}
+
+.box:hover::before {
+  max-width: 100%;
+    width: 100%;
+  color: rgba(24, 3, 100, 0.6);
+  background-color: rgba(38, 0, 109, 0.2);
+}
+
+.box select option {
+    align-self: center;
+    max-width: 100%;
+    width: 100%;
+  padding-bottom: 30px;
+  padding-top: 30px;
+}
+
+.confirmar {
+    align-self: center;
+    cursor: pointer;
+    font-weight: 600;
+    border-radius: 4px;
+    background-color: #3441a5; /* Green */
+    border: none;
+    color: white;
+    margin: 1rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    max-width: 400px;
+    padding: 10px;
+    font-size: 16px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+input#nome {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  text-align: center;
+}
+
+.adicionar-outro {
+    align-self: center;
+    cursor: pointer;
+    font-weight: 600;
+    border-radius: 4px;
+    background-color: #ffffff; /* Green */
+    border: none;
+    color: rgb(74, 61, 255);
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    border: 1px solid rgb(154, 154, 255);
+    display: inline-block;
+    max-width: 400px;
+    padding: 10px;
+    font-size: 14px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+button {
+  font-family: 'Montserrat', sans-serif;
+}
+
+        body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.titulo {
+    color: rgb(0, 0, 0)
+}
+
+.toggle-menu {
+  border-radius: 4px;
+  padding: 8px;
+  text-decoration: none;
+  border: 2px solid rgb(34, 53, 133);
+  outline: none;
+  font-weight: 600;
+  font-size: large;
+  background-color: #3441a5;
+}
+
+.toggle-menu a {
+  text-decoration: none;
+  color: white;
+}

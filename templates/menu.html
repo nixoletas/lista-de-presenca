@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Confirmação de Presença</title>
+        <link rel="stylesheet" href="../static/style.css" />
+        <link rel="icon" href="../static/9bcom.ico" type="image/x-icon">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap">
+</head>
+<body>
+    {% include 'header.html' %}
+</div>
+<div class="box">
+    <h2>Lista de convidados</h2>
+    <p>Relação geral</p>
+    <div class="box">
+        <div class="">
+        <button class="toggle-menu"><a href="/oficiais_generais">Oficiais Generais</a></button>
+        <button class="toggle-menu"><a href="/comandantes_om">Comandantes de OM</a></button>
+        <button class="toggle-menu"><a href="/convidados_militares">Convidados Militares</a></button>
+        <button class="toggle-menu"><a href="/civil">Civil</a></button>
+        </div>
+        <form method="post">
+            <select name="convidado" class="select-menu">
+                {% for convidado in convidados %}
+                {% if not convidado["confirmado"] %}
+                <option value="{{ convidado['id'] }}">{{ convidado['nome'] }}</option>
+                {% endif %}
+                {% endfor %}
+            </select>
+            <button class="confirmar" type="submit">Confirmar Presença</button>
+        </form>
+        <a class="adicionar-outro" href="/add">adicionar outro convidado</a>
+    </div>
+</body>
+</html>
